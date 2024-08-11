@@ -1,0 +1,48 @@
+# Python (FastAPI backend)
+backend/*.pyc
+backend/*.pyo
+**/__pycache__/
+backend/*.sqlite3
+**/.env
+backend/venv/
+backend/env/
+backend/.venv/
+
+# Node.js (Next.js frontend)
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/*.log
+frontend/*.lock
+frontend/package-lock.json
+frontend/yarn.lock
+frontend/*.env.local
+frontend/*.env.development.local
+frontend/*.env.test.local
+frontend/*.env.production.local
+
+# Docker
+docker-compose.override.yml
+Dockerfile.dev
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln
+*.swp
+*.swo
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Miscellaneous
+*.cache
+*.coverage
+*.cover
+*.py,cover
+*.mo
+*.pot
