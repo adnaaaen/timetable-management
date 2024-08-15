@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import { SubjectCard } from "@/components/subject-card";
 import { TabView } from "@/components/tab-view";
 import Head from "next/head";
+import { useCurrentTime } from "@/utils/current-time";
+import { Calendar } from "lucide-react";
+import { Clock } from "lucide-react";
 
 const subjectData = [
   {
@@ -44,7 +47,7 @@ const subjectData = [
 
 const TimeTablePage = () => {
   const [isWeeklyView, setIsWeeklyView] = useState(false);
-
+  const { weekday, month, day, year, time } = useCurrentTime();
   const showWeeklyView = () => {
     setIsWeeklyView(true);
   };
@@ -64,19 +67,29 @@ const TimeTablePage = () => {
           showWeeklyView={showWeeklyView}
         />
       </div>
+      <div className="w-full h-20 px-5 justify-center flex flex-col">
+        <div className="flex items-center gap-x-2">
+          <Calendar size={19} />
+          <h2 className="font-semibold text-lg">{`${weekday} ${month} ${day} ${year}`}</h2>
+        </div>
+        <div className="flex items-center gap-x-2">
+          <Clock size={19} />
+          <h2 className="font-semibold text-lg">{`${time} AM`}</h2>
+        </div>
+      </div>
       {isWeeklyView ? (
         <div className="h-full">
           <h2 className="text-white">Weekly timetable</h2>
         </div>
       ) : (
-        <div className="h-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 pt-24">
-          {subjectData.map((data, index) => (
+        <div className="h-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 pt-10">
+          {subjectData.map((subject, index) => (
             <SubjectCard
               key={index}
-              courseName={data.subjectName}
-              batchName={data.batchName}
-              time={data.time}
-              imageSrc={data.imageSrc}
+              courseName={subject.subjectName}
+              batchName={subject.batchName}
+              time={subject.time}
+              imageSrc={subject.imageSrc}
             />
           ))}
         </div>

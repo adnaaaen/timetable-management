@@ -1,0 +1,32 @@
+from sqlalchemy.orm import Session
+from fastapi import APIRouter, Depends, HTTPException
+from typing import List
+from db import get_db
+from schemas import professor
+from core import dependency
+from models.professors import Professors
+from crud.professor import professor as crud
+router = APIRouter()
+
+@router.get("/api/professor", response_model=List[professor.ProfessorSchema])
+async def list_professors(db: Session = Depends(get_db), skip: int = 0, limit: int = 100) -> List[professor.ProfessorSchema]:
+   users = crud.read(db=db, skip=skip, limit=limit)
+   if not users:
+       raise HTTPException(status_code=404, detail="No user left") 
+   return users
+
+@router.post("/api/professor", response_model=professor.ProfessorSchema)
+async def create_professor(request: professor.ProfessorCreateSChema, db: Session = Depends(get_db)) -> professor.ProfessorSchema:
+    is_existed_user = dependency.get_that_by_this(db=db, key="email", model=Professors, value=request.email)
+    if not is_existed_user:
+        new_user = crud.create(db=db, new_professor=request)
+        return new_user
+    raise HTTPException(status_code=404, detail="user already exist")
+    
+@router.delete("/api/professor", response_model=professor.ProfessorSchema)
+async def delete_professor(id: int, db: Session = Depends(get_db)) -> professor.ProfessorSchema:
+    is_existed_user = dependency.get_that_by_this(db=db, key="id", value=id, model=Professors)
+    if not is_existed_user:
+        raise HTTPException(status_code=404, detail="no user found")
+    user = crud.delete(db=db, id=id)
+    return user
