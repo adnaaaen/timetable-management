@@ -34,7 +34,7 @@ export const ADMIN_SIDEBAR_LINKS = [
   {
     key: "timetable",
     label: "TimeTable",
-    href: "/admin/dashboard/timetables",
+    href: "/admin/dashboard/timetable",
     Icon: CalendarDays,
   },
 ];

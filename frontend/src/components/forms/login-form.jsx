@@ -5,8 +5,10 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginValidator } from "@/lib/validator/login.validator";
+import { useRouter } from "next/navigation";
 
 export const LoginForm = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -15,8 +17,18 @@ export const LoginForm = () => {
     resolver: zodResolver(LoginValidator),
     mode: "onChange",
   });
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    const response = await fetch("http://localhost:8000/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    const jsonResponse = await response.json();
+    response.ok
+      ? router.push(`/${jsonResponse.id}`)
+      : console.log("something went wrong");
   };
   return (
     <div>

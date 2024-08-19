@@ -1,22 +1,13 @@
 import React from "react";
-import Image from "next/image";
 
-export const SubjectCard = ({ courseName, batchName, time, imageSrc }) => {
+export const SubjectCard = ({ subjectName, batchName, time }) => {
   return (
     <div className="h-36 w-64 hover:border rounded-md">
-      <div className="relative w-full h-2/3 bg-white rounded-t-md">
-        <Image
-          src={imageSrc}
-          className="w-full h-full rounded-t-md object-cover"
-          alt={"Cover image"}
-          width={300}
-          height={150}
-          unoptimized
-        />
+      <div className="relative w-full h-2/3 bg-black/25 rounded-t-md">
         <div className="absolute bottom-1 left-2 flex items-center justify-center rounded-lg">
           <div className="w-full">
             <h2 className=" p-1 rounded-sm text-xl font-semibold">
-              {courseName}
+              {subjectName}
             </h2>
           </div>
         </div>

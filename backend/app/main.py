@@ -1,6 +1,10 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 from api.api import router
+from models.batches import Batch
+from models.professors import Professors
+from models.subject import Subject
+from models.timetable import Timetable
 from db import Base, engine
 
 app = FastAPI()

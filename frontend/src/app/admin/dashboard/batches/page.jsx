@@ -24,7 +24,7 @@ const BatchesPage = () => {
   };
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full select-none">
       <div className="w-full">
         <Header
           Icon={School}

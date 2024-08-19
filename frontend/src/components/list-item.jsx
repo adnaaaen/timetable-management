@@ -5,12 +5,9 @@ import { Tooltip } from "@nextui-org/tooltip";
 
 export const ItemList = ({ id, name, itemId, path }) => {
   const deleteProfessor = async (id) => {
-    const response = await fetch(
-      `http://localhost:8000/api/${path}?id=${id}`,
-      {
-        method: "DELETE",
-      }
-    );
+    const response = await fetch(`http://localhost:8000/api/${path}?id=${id}`, {
+      method: "DELETE",
+    });
     response.status == 200
       ? window.location.reload()
       : console.log("something went wrong");
