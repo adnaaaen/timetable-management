@@ -2,11 +2,11 @@ from fastapi import APIRouter, HTTPException
 from typing import List
 from sqlalchemy.orm import Session
 from fastapi import Depends
-from db import get_db
-from models.subject import Subject
-from core import dependency
-from schemas import subject
-from crud.subject import subject as crud
+from app.db import get_db
+from app.models.subject import Subject
+from app.core import dependency
+from app.schemas import subject
+from app.crud.subject import subject as crud
 
 router = APIRouter()
 

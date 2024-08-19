@@ -1,7 +1,7 @@
-from schemas.user import UserLogin
+from app.schemas.user import UserLogin
 from sqlalchemy.orm import Session
-from models.professors import Professors
-from core import security
+from app.models.professors import Professors
+from app.core import security
 
 
 class UserCrud:

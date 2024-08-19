@@ -43,6 +43,7 @@ const BatchesPage = () => {
         ) : (
           batches.map((batch, index) => (
             <ItemList
+              key={index}
               id={index + 1}
               name={batch.name}
               itemId={batch.id}

@@ -1,11 +1,11 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
-from api.api import router
-from models.batches import Batch
-from models.professors import Professors
-from models.subject import Subject
-from models.timetable import Timetable
-from db import Base, engine
+from app.routes.config import router
+from app.models.batches import Batch
+from app.models.professors import Professors
+from app.models.subject import Subject
+from app.models.timetable import Timetable
+from app.db import Base, engine
 
 app = FastAPI()
 app.include_router(router)

@@ -19,7 +19,7 @@ const TimeTablePage = () => {
       console.log(jsonResponse);
     };
     fetchTimeTable();
-  }, []);
+  }, [id]);
   
 
   return (

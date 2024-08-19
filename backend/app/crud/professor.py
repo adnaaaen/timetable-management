@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 from typing import List
-from models.professors import Professors
-from schemas.professor import ProfessorCreateSChema, ProfessorSchema
-from core.security import get_hashed_password
+from app.models.professors import Professors
+from app.schemas.professor import ProfessorCreateSChema, ProfessorSchema
+from app.core.security import get_hashed_password
 
 
 class ProfessorCrud:

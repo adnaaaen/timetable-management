@@ -44,6 +44,7 @@ const SubjectPage = () => {
         ) : (
           subjects.map((subject, index) => (
             <ItemList
+              key={index}
               id={index + 1}
               name={subject.display_name}
               itemId={subject.id}

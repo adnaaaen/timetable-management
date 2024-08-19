@@ -44,6 +44,7 @@ const SubjectPage = () => {
         ) : (
           timetables.map((timetable, index) => (
             <ItemList
+              key={index}
               id={index + 1}
               name={`${timetable.professor.name} have ${timetable.subject.display_name} in ${timetable.batch.display_name} at ${timetable.time}`}
               itemId={timetable.id}

@@ -54,7 +54,7 @@ export const CreateTimeTableForm = () => {
       }
     };
     fetchOptions();
-  }, []);
+  }, [professorOptions]);
 
   const onSubmit = async (data) => {
     const convertedData = {

@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from typing import List
-from models.subject import Subject
-from schemas.subject import SubjectCreateSchema, SubjectSchema
+from app.models.subject import Subject
+from app.schemas.subject import SubjectCreateSchema, SubjectSchema
 
 
 class SubjectCrud:

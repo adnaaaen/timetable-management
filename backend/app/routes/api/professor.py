@@ -1,11 +1,11 @@
 from sqlalchemy.orm import Session
 from fastapi import APIRouter, Depends, HTTPException
 from typing import List
-from db import get_db
-from schemas import professor
-from core import dependency
-from models.professors import Professors
-from crud.professor import professor as crud
+from app.db import get_db
+from app.schemas import professor
+from app.core import dependency
+from app.models.professors import Professors
+from app.crud.professor import professor as crud
 
 router = APIRouter()
 

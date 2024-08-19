@@ -42,6 +42,7 @@ const ProfessorPage = () => {
         ) : (
           professor.map((professors, index) => (
             <ItemList
+              key={index}
               id={index + 1}
               name={professors.name}
               itemId={professors.id}

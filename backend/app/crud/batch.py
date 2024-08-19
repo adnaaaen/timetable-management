@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-import schemas.batch as schema
-from models.batches import Batch
+import app.schemas.batch as schema
+from app.models.batches import Batch
 
 class BatchCrud:
     def create(self, db: Session, new_batch: schema.BatchCreateSchema) -> schema.BatchSchema:

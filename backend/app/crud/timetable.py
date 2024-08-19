@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from typing import List
-from models.timetable import Timetable
-from schemas.timetable import (
+from app.models.timetable import Timetable
+from app.schemas.timetable import (
     TimetableCreateSchema,
     TimetableSchema,
     TimetableDeleteSchema,
