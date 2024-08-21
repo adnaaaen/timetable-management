@@ -6,12 +6,12 @@ export const useCurrentTime = () => {
   useEffect(() => {
     const minuteInterval = setInterval(() => {
       setCurrentDateTime(new Date());
-    }, 1000);
+    }, 100);
 
     return () => clearInterval(minuteInterval);
   }, []);
 
-  const formatDate = (date) => {
+  const getFormattedParts = (date) => {
     const options = {
       weekday: "long",
       month: "short",
@@ -19,10 +19,23 @@ export const useCurrentTime = () => {
       year: "numeric",
       hour: "2-digit",
       minute: "2-digit",
-      second: "2-digit",
+      hour12: true, 
     };
-    return date.toLocaleString("en-US", options);
+
+    const formattedDateString = date
+      .toLocaleString("en-US", options)
+      .replace(/,/g, ""); 
+
+    const [weekday, month, day, year, time] = formattedDateString.split(" ");
+
+    return {
+      weekday,
+      month,
+      day,
+      year,
+      time,
+    };
   };
 
-  return formatDate(currentDateTime);
+  return getFormattedParts(currentDateTime);
 };

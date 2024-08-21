@@ -6,3 +6,29 @@ body{
   background-color: rgb(22, 22, 22);
   color: white;
 }
+
+.error-message{
+  font-size: 11px;
+  color: rgb(239 68 68);
+  margin: 5px 0px 0px 3px;
+}
+
+.custom-button{
+  font-size: 13px;
+  padding: 0px  10px;
+  height: 27px;
+  border-radius: 4px;
+  color: black;
+  background-color: white;
+}
+
+.custom-select{
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  height: 40px;
+
+  border-radius: 5px;
+}
